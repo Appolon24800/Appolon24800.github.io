@@ -1,3 +1,0 @@
-RewriteEngine On
-RewriteBase /
-RewriteRule ^(.*)/([Ss][Oo][Ff][Tt][Ww][Aa][Rr][Ee])(.*)$ $1/software$3 [R=301,L]
