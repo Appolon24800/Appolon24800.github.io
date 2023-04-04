@@ -1,3 +1,3 @@
 RewriteEngine On
 RewriteBase /
-RewriteRule ^(.*)/Software(.*)$ $1/software$2 [R=301,L]
+RewriteRule ^(.*)/([Ss][Oo][Ff][Tt][Ww][Aa][Rr][Ee])(.*)$ $1/software$3 [R=301,L]
