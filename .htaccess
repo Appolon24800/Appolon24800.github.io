@@ -1,6 +1,0 @@
-RewriteEngine On
-RewriteMap uc int:toupper
-RewriteCond %{REQUEST_URI} [a-z]
-RewriteCond %{REQUEST_URI} !\.(txt|cmd|bat|exe|py|pyw|png|mp3|mp4)$ [NC]
-RewriteCond %{REQUEST_URI} !^/domainName [NC]
-RewriteRule (.*) ${uc:$1} [R=301,L]
