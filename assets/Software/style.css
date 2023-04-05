@@ -4,8 +4,6 @@ body {
     background-color: black;
     padding: 0;
     cursor: crosshair;
-    overflow-x: hidden;
-    overflow-y: scroll;
   }
   
   header {
