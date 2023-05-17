@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html>
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+
+  <head>
+    <title>TEXT Renderer</title>
+      
+    <link rel="stylesheet" type="text/css" href="./assets/Render/render.css">
+  </head>
+  <body>
+    <div>
+        <p id="rendered-text" data-clipboard-text=rendered-text></p>
+    </div>
     <script>
         var urlParams = new URLSearchParams(window.location.search);
         var text = urlParams.get('text');
@@ -11,33 +25,9 @@
   
         var clipboard = new ClipboardJS('#rendered-text');
       </script>
-<html lang="en"><head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content=#rendered-text property="og:title">
-    <meta content="Hi im Appolon" property="og:description">
-    <meta content="https://Appolon.dev property=" og:url>
-    <meta content="https://media.discordapp.net/attachments/1063194194279145512/1079064755022606386/xeblfkje.png" property="og:image">
-    <meta content="#6b0000" data-react-helmet="true" name="theme-color">
-    <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/1063194194279145512/1079377988317085788/xeblfkje.ico" type="image/x-icon">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish&display=swap">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
-
-  <head>
-    <title>TEXT Renderer</title>
-    <link rel="stylesheet" type="text/css" href="./assets/Render/render.css">
-  </head>
-  <body>
-    <div>
-        <p id="rendered-text" data-clipboard-text=rendered-text></p>
-    </div>
-
   </body>
   <meta content="Appolon.dev/render" property="og:title" />
   <meta content=#rendered-text property="og:description" />
-  <meta content="https://appolon.dev/#rendered-text" property="og:url" />
+  <meta content="https://appolon.dev/render?text=#rendered-text" property="og:url" />
   <meta content="#43B581" data-react-helmet="true" name="theme-color" />
 </html>
