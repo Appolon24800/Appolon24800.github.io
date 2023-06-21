@@ -1,0 +1,33 @@
+```diff
+- LunarRPC:
+  - Description: Remove the lunar client RPC (github.com/Fuwn/soyuz)
+  - Usage: {data['Prefix']}lunarrpc
+
+- Backup:
+  - Description: Create a backup of this discord account
+  - Usage: {data['Prefix']}backup
+
+- Reboot:
+  - Description: Restart the SelfBot
+  - Usage: {data['Prefix']}restart
+
+- Shutdown:
+  - Description: Stop the SelfBot
+  - Usage: {data['Prefix']}shutdown
+
+- Raid:
+  - Description: Destroy the current discord server (you need perms)
+  - Usage: {data['Prefix']}raid
+
+- DelWebhook:
+  - Description: Delete a webhook
+  - Usage: {data['Prefix']}delwebhook [Webhook URL]
+
+- MemberScraper:
+  - Description: Scrape the id of all users in a discord server
+  - Usage: {data['Prefix']}memberscraper
+
+- Hide:
+  - Description: Hide the selfbot
+  - Usage: {data['Prefix']}hide
+```
