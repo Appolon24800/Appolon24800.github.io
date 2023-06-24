@@ -16,7 +16,7 @@
       var text = urlParams.get('text');
       
       if (!text) {
-        window.location.href = '/render?text=';
+        window.location.href = '/render?text=Text';
       } else {
         var renderedText = document.getElementById('rendered-text');
         renderedText.innerHTML = text;
