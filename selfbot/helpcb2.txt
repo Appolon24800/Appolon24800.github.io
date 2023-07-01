@@ -30,4 +30,8 @@
 - Hide:
   - Description: Hide the selfbot
   - Usage: {data['Prefix']}hide
+
+- SS:
+  - Description: Take a screen shot of your computer and send it
+  - Usage: {data['Prefix']}ss
 ```
