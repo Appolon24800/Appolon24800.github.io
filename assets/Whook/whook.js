@@ -1,31 +1,29 @@
 function deleteWebhook() {
-  // Replace the following variable with your own webhook URL
   const webhookUrl = document.getElementById("webhook-input").value;
 
-  // Define the webhook message
   const webhookMessage = {
-    username: "WebhookDeleter9000.appolon.dev",
-    avatar_url: "https://cdn.discordapp.com/attachments/1063194194279145512/1084183202811355177/favicon.png",
+    username: "appolon.dev/webhook",
+    avatar_url: "https://cdn.discordapp.com/attachments/1118656570042105887/1143474423345721465/icon.ico",
     embeds: [
       {
         type: "rich",
         title: "Hi from Appolon.dev",
-        description: "Nice webhook kid",
+        description: "Nice webhook ngl",
         color: 0x025858,
         image: {
-          url: "https://cdn.discordapp.com/attachments/1063194194279145512/1086349400093241444/images.jpg",
+          url: "https://cdn.discordapp.com/attachments/1118656570042105887/1143474423345721465/icon.ico",
           height: 0,
           width: 0
         },
         footer: {
-          text: "Appolon.dev  |  Appolon#2523",
-          icon_url: "https://cdn.discordapp.com/attachments/1063194194279145512/1084183202811355177/favicon.png"
+          text: "Appolon.dev  |  sex.shop",
+          icon_url: "https://cdn.discordapp.com/attachments/1118656570042105887/1143474423345721465/icon.ico"
         },
         url: "https://Appolon.dev",
         fields: [
           {
-            name: "Appolon on top",
-            value: "<a:catdance:1022393582650404935><a:catdance:1022393582650404935><a:catdance:1022393582650404935><a:catdance:1022393582650404935><a:catdance:1022393582650404935><a:catdance:1022393582650404935><a:catdance:1022393582650404935><a:catdance:1022393582650404935>",
+            name: "Appolon > you",
+            value: "<a:catdance:1022393582650404935> <a:catdance:1022393582650404935> <a:catdance:1022393582650404935> <a:catdance:1022393582650404935> <a:catdance:1022393582650404935> <a:catdance:1022393582650404935> <a:catdance:1022393582650404935> <a:catdance:1022393582650404935>",
             inline: false
           }
         ]
@@ -34,14 +32,14 @@ function deleteWebhook() {
   };
 
 
-
-  // Send the webhook message using fetch
   fetch(webhookUrl, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
+
     body: JSON.stringify(webhookMessage)
+
   })
 
   fetch(webhookUrl, {
@@ -50,11 +48,11 @@ function deleteWebhook() {
 
   .then(response => {
     if (!response.ok) {
-      throw new Error(`HTTP error ${response.status}`);
+      throw new Error(`${response.status}`);
     }
-    console.log('Webhook message sent successfully');
+    console.log('Success');
   })
   .catch(error => {
-    console.error('Error sending webhook message:', error);
+    console.error('Error', error);
   });
 }

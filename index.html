@@ -114,10 +114,39 @@
               <div class="category-title">Member Since</div>
               <p>Jun 13, 2018</p>
             </div>
+
             <div class="note">
               <div class="category-title">Note</div>
-              <textarea placeholder="Click for add a note"></textarea>
+              <textarea id="randomTextarea"></textarea>
             </div>
+          
+            <script>
+              const note = [
+                "This guy cool",
+                "note.exe",
+                "note.txt",
+                "note Note = 'Custom note'",
+                "ass website no?",
+                "Click for add a note",
+                "Can you write something here please",
+                "Join the ALtDB discord now!",
+                "Rise > Moon ?",
+                "Moon > Rise ?",
+                "Badlion > Lunar?",
+                "Lunar > Badlion"
+              ];
+          
+              function setRandomTextareaText() {
+                const randomText = note[Math.floor(Math.random() * note.length)];
+                const textareaObject = document.getElementById("randomTextarea");
+                textareaObject.placeholder = randomText;
+              }
+          
+              window.addEventListener("load", setRandomTextareaText);
+            </script>
+            
+            
+            
             <a href="https://altdb.appolon.dev/" target="_blank" class="btn">AltDB discord</a>
             <a href="https://e-z.bio/appolon" target="_blank" class="btn">E-Z.bio/Appolon</a>
             <a href="https://github.appolon.dev/" target="_blank" class="btn">Github</a>

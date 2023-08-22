@@ -1,5 +1,5 @@
 body {
-  background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg');
+  background-image: url('https://images.pexels.com/photos/9313838/pexels-photo-9313838.jpeg');
   background-size: cover;
   -webkit-animation: slidein 100s;
   animation: slidein 100s;
@@ -9,37 +9,6 @@ body {
   animation-iteration-count: infinite;
   -webkit-animation-direction: alternate;
   animation-direction: alternate;
-}
-
-@-webkit-keyframes slidein {
-  from {background-position: top; background-size: 3000px;}
-  to {background-position: -100px 0px; background-size: 2750px;}
-}
-
-@keyframes slidein {
-  from {background-position: top; background-size: 3000px;}
-  to {background-position: -100px 0px; background-size: 2750px;}
-}
-
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(75, 75, 250, 0.3);
-  border-radius: 3px;
-}
-
-.center h1 {
-  text-align: center;
-  color: rgb(0, 0, 0);
-  font-family: 'Source Code Pro', monospace;
-  text-transform: uppercase;
 }
 
 div {
@@ -68,7 +37,7 @@ p:hover {
   animation-timing-function: ease-in-out;
 }
 
-@keyframes zoom {
+@keyframes shadow {
   0% {
     transform: scale(1);
   }
@@ -78,6 +47,12 @@ p:hover {
 }
 
 @media screen and (max-width: 900px) {
+  p {
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-height: 770px) {
   p {
     font-size: 50px;
   }
