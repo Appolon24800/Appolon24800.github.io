@@ -144,9 +144,8 @@
                           alert("API Response: " + JSON.stringify(responseData));
                       })
                       .catch(error => {
-                          console.log("Send " + '"' + message + '"' + " To the API");
-                          console.error("Error:", error);
-                          alert("Error: " + error);
+                          console.error("Error: " + error);
+                          alert("There is a problem, the API can be down. see the console for more info");
                       });
                   }
                   const inputElement = document.querySelector('.message input');
