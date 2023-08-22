@@ -6,6 +6,7 @@
   font-family: "Whitney", sans-serif;
   box-sizing: border-box;
   cursor: url('https://raw.githubusercontent.com/coob113/fancy-cursors/master/mini1.png') 64 64, auto !important;
+  background-color: #037175;
 }
 
 body,
@@ -452,16 +453,4 @@ html {
     opacity: 1;
   }
 }
-
-
-@media (max-width: 768px) {
-  /* Apply styles to make the page scrollable on mobile devices */
-  body {
-    overflow-y: scroll;
-  }
-  
-  .nitro-card {
-    max-width: 100%;
-    padding: 10px;
-  }
 }
