@@ -130,12 +130,12 @@
                       alert("The max message length is 70");
                   } else {
                       const endpoint = "https://api.appolon.dev/index/message";
+        
                       fetch(endpoint, {
                           method: "POST",
                           headers: {
-                              "message": message
-                          },
-                          body: JSON.stringify(headers)
+                              "message": message // Set the message as a header
+                          }
                       })
                       .then(response => response.json())
                       .then(responseData => {
