@@ -5,6 +5,7 @@
   padding: 0;
   font-family: "Whitney", sans-serif;
   box-sizing: border-box;
+  overflow: hidden;
   cursor: url('https://raw.githubusercontent.com/coob113/fancy-cursors/master/mini1.png') 64 64, auto !important;
   background-color: #037175;
 }
@@ -16,8 +17,8 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  scrollbar-width: none;
   background-color: #037175;
+  overflow: hidden;
 }
 
 .button {
