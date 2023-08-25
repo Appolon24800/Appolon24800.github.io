@@ -174,7 +174,7 @@
                                 .then(responseData => {
                                     console.log("Req send : " + '"' + message + '"');
                                     console.log("API Responce :", responseData);
-                                    alert(JSON.parse(responseData).error);
+                                    alert(JSON.stringify(responseData));
                                 })
                                 .catch(error => {
                                     console.error("Error : " + error);
