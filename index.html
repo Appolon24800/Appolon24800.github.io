@@ -159,7 +159,8 @@
                         grecaptcha.ready(function() {
                             grecaptcha.execute('6LdeHNMnAAAAAHNTLhHA3DDgLp5QHzOi4cd1ZWv2', { action: 'sendmessage' }).then(function(token) {
                                 const endpoint = "https://api.appolon.dev/index/message";
-            
+                                console.log(token)
+				console.log(message)
                                 fetch(endpoint, {
                                     method: "POST",
                                     headers: {
