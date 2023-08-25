@@ -13,7 +13,8 @@
           <meta content="https://Appolon.dev property=" og:url>
           <meta content="https://images-ext-2.discordapp.net/external/nBnOU2n5_g8F13A7nnwKvOCrUCh3cbJQX1uzwffIx-k/https/r2.e-z.host/db7d1d92-e2b1-474e-ab4f-c298b5d3fb41/katspe84.png" property="og:image">
           <meta content="#6b0000" data-react-helmet="true" name="theme-color">
-          <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/1118656570042105887/1143474423345721465/icon.ico" type="image/x-icon">
+          <script src="https://www.google.com/recaptcha/api.js?render=6LdeHNMnAAAAAHNTLhHA3DDgLp5QHzOi4cd1ZWv2"></script>
+		  <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/1118656570042105887/1143474423345721465/icon.ico" type="image/x-icon">
     <script>
 
       const titles = [
@@ -144,7 +145,6 @@
             </script>
             
             
-            
             <a href="https://altdb.appolon.dev/" target="_blank" class="btn">AltDB discord</a>
             <a href="https://e-z.bio/appolon" target="_blank" class="btn">E-Z.bio/Appolon</a>
             <a href="https://github.appolon.dev/" target="_blank" class="btn">Github</a>
@@ -152,41 +152,51 @@
             <a href="https://Selfctrl.appolon.dev/" target="_blank" class="btn2">SelfBOT</a>
 
             <script>
-              function sendmessage(message) {
-                  if (message.length >= 140) {
-                      alert("The max message length is 140");
-                  } else {
-                      const endpoint = "https://api.appolon.dev/index/message";
-        
-                      fetch(endpoint, {
-                          method: "POST",
-                          headers: {
-                              "message": message
-                          }
-                      })
-                      .then(response => response.json())
-                      .then(responseData => {
-                          console.log("Send " + '"' + message + '"' + " To the API");
-                          console.log("API Response:", responseData);
-                          alert("API Response: " + JSON.stringify(responseData));
-                      })
-                      .catch(error => {
-                          console.error("Error: " + error);
-                          alert("There is a problem, the API can be down. see the console for more info");
-                      });
-                  }
-                  const inputElement = document.querySelector('.message input');
-                  inputElement.value = '';
-              }
-          </script>
+                function sendmessage(message) {
+                    if (message.length >= 140) {
+                        alert("The message max length is 140");
+                    } else {
+                        grecaptcha.ready(function() {
+                            grecaptcha.execute('6LdeHNMnAAAAAHNTLhHA3DDgLp5QHzOi4cd1ZWv2', { action: 'sendmessage' }).then(function(token) {
+                                const endpoint = "https://api.appolon.dev/index/message";
+            
+                                fetch(endpoint, {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify({
+                                        token: token,
+                                        message: message
+                                    })
+                                })
+                                .then(response => response.json())
+                                .then(responseData => {
+                                    console.log("Req send : " + '"' + message + '"');
+                                    console.log("API Responce :", responseData);
+                                    alert(JSON.parse(responseData).error);
+                                })
+                                .catch(error => {
+                                    console.error("Error : " + error);
+                                    alert("There is a problem, if the probleme persist contact the owner here: zakary@appolon.dev");
+                                });
+                            });
+                        });
+                    }
+                    const inputElement = document.querySelector('.message input');
+                    inputElement.value = '';
+                }
+            </script>
+
       </head>
       <body>
           <div class="message">
-              <input type="text" onkeydown="if (event.key === 'Enter') sendmessage(this.value)" placeholder="Send a message to @Appolon"/>
+              <input type="text" onkeydown="if (event.key === 'Enter') sendmessage(this.value)" placeholder="Send message top @Appolon"/>
           </div>
           </div>  
         </div>
       </div>
     </div>
+	
   </body>
 </html>
