@@ -1,9 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Command Help</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+    <script>
+        function getparam(sParam)
+        {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) 
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) 
+                {
+                    return sParameterName[1];
+                }
+            }
+        }​
+
+        var username = getparam('username');
+        if (!username) {
+            window.location.replace('https://appolon.dev');
+        } else {
+            // Update the title with the username
+            document.title = "Hi, " + username;
+        }
+        
+    </script>
 <body>
     <h2>Commands & Features:</h2>
     <ul>
