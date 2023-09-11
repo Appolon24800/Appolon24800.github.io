@@ -8,7 +8,7 @@
           <meta charset="UTF-8">
           <meta http-equiv="X-UA-Compatible" content="IE=edge">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <meta content="Best Website WW" property="og:title">
+          <meta content="> appolon.dev <" property="og:title">
           <meta content="Hi im Appolon#2523" property="og:description">
           <meta content="https://Appolon.dev property=" og:url>
           <meta content="https://images-ext-2.discordapp.net/external/nBnOU2n5_g8F13A7nnwKvOCrUCh3cbJQX1uzwffIx-k/https/r2.e-z.host/db7d1d92-e2b1-474e-ab4f-c298b5d3fb41/katspe84.png" property="og:image">
@@ -153,8 +153,9 @@
 
             <script>
                 function sendmessage(message) {
-                    if (message.length >= 140) {
-                        alert("The message max length is 140");
+                    if (message.length >= 400) {
+                        alert("The message max length is 400");
+			console.log('There is also a verification server side btw')
                     } else {
                         grecaptcha.ready(function() {
                             grecaptcha.execute('6LdeHNMnAAAAAHNTLhHA3DDgLp5QHzOi4cd1ZWv2', { action: 'sendmessage' }).then(function(token) {
