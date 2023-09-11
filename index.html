@@ -152,37 +152,36 @@
 
             <script>
                 function sendmessage(message) {
+				            if (message.length <= 0) {
+					            alert("This message is null");
+				            }
                     if (message.length >= 400) {
                         alert("The message max length is 400");
-			            console.log('There is also a verification server side btw')
+			                  console.log('There is also a verification server side btw')
                     } else {
-                        grecaptcha.ready(function() {
-                            grecaptcha.execute('6LdeHNMnAAAAAHNTLhHA3DDgLp5QHzOi4cd1ZWv2', { action: 'sendmessage' }).then(function(token) {
-                                const endpoint = "https://api.appolon.dev/index/message";
+                        const url = 'https://api.appolon.dev/index/message';                                           
 
-				console.log(message)
-                                fetch(endpoint, {
-                                    method: "POST",
-                                    headers: {
-                                        "token": token,
-					                    "message": message
-                                    },
-                                })
-                                .then(response => response.json())
-                                .then(responseData => {
-                                    console.log("Req send : " + '"' + message + '"');
-                                    console.log("API Responce :", responseData);
-                                    alert(JSON.stringify(responseData));
-                                })
-                                .catch(error => {
-                                    console.error("Error : " + error);
-                                    alert("There is a problem, if the probleme persist contact the owner here: zakary@appolon.dev");
-                                });
-                            });
-                        });
+                        const req = {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                            'message': message
+                          },
+                        };                        
+                        fetch(url, req)
+                          .then(response => {
+                            return response.json();
+                          })
+                          .then(data => {
+                            console.log('Resp:', data);
+                          })
+                          .catch(error => {
+                            console.error('Error: ', error);
+                          });
+
                     }
-                    const inputElement = document.querySelector('.message input');
-					console.log(inputElement)
+                    const inputElement = document.querySelector('.message');
+
                     inputElement.value = '';
                 }
             </script>
