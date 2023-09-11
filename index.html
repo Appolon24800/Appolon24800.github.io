@@ -131,7 +131,6 @@
                 "Join the ALtDB discord now!",
                 "Rise > Moon ?",
                 "Moon > Rise ?",
-                "Badlion > Lunar?",
                 "Lunar > Badlion"
               ];
           
@@ -155,18 +154,18 @@
                 function sendmessage(message) {
                     if (message.length >= 400) {
                         alert("The message max length is 400");
-			console.log('There is also a verification server side btw')
+			            console.log('There is also a verification server side btw')
                     } else {
                         grecaptcha.ready(function() {
                             grecaptcha.execute('6LdeHNMnAAAAAHNTLhHA3DDgLp5QHzOi4cd1ZWv2', { action: 'sendmessage' }).then(function(token) {
                                 const endpoint = "https://api.appolon.dev/index/message";
-                                console.log(token)
+
 				console.log(message)
                                 fetch(endpoint, {
                                     method: "POST",
                                     headers: {
                                         "token": token,
-					"message": message
+					                    "message": message
                                     },
                                 })
                                 .then(response => response.json())
@@ -183,6 +182,7 @@
                         });
                     }
                     const inputElement = document.querySelector('.message input');
+					console.log(inputElement)
                     inputElement.value = '';
                 }
             </script>
@@ -190,7 +190,7 @@
       </head>
       <body>
           <div class="message">
-              <input type="text" onkeydown="if (event.key === 'Enter') sendmessage(this.value)" placeholder="Contact @Appolon"/>
+              <input type="text" onkeydown="if (event.key === 'Enter') sendmessage(this.value)" placeholder="Want to contact me ?"/>
           </div>
           </div>  
         </div>
