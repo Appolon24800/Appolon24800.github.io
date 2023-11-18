@@ -1,59 +1,42 @@
 body {
-  background-image: url('https://images.pexels.com/photos/9313838/pexels-photo-9313838.jpeg');
-  background-size: cover;
-  -webkit-animation: slidein 100s;
-  animation: slidein 100s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-iteration-count: infinite;
-  animation-iteration-count: infinite;
-  -webkit-animation-direction: alternate;
-  animation-direction: alternate;
-}
+    background: url('https://api.appolon.dev/download/renderbg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    animation: slidein 100s infinite alternate;
+    animation-fill-mode: forwards;
+    overflow: hidden;
+  }
 
 div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 90vh;
-  overflow: hidden;
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    overflow: scroll;
+}
+
+
+h1 { 
+    color: #111; 
+    font-family: 'Helvetica Neue', sans-serif; 
+    font-weight: bold; 
+    line-height: 1; 
+    text-align: center; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
 }
 
 p {
-  font-family: 'Mulish';
-  color: rgb(0, 116, 116);
-  font-size: 70px;
-  max-width: 100%;
-  word-wrap: break-word;
-  transition: all 0.2s ease-in-out;
-  text-shadow: 6px 6px 6px rgba(0, 116, 116, 0.5);
+    font-family: 'Courier';
+    color: rgba(112, 0, 0, 1);
+    font-size: 60px;
+    max-width: 70%;
+    word-wrap: break-word;
+    text-shadow: 2px 2px 5px rgba(112, 0, 0, 1);
+    transition: all 0.3s ease-in-out;
 }
 
 p:hover {
-  transform: scale(1.2);
-  animation-name: zoom;
-  animation-duration: 0.6s;
-  animation-timing-function: ease-in-out;
+    text-shadow: 6px 6px 5px rgba(112, 0, 0, 1);
 }
 
-@keyframes shadow {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.2);
-  }
-}
-
-@media screen and (max-width: 900px) {
-  p {
-    font-size: 50px;
-  }
-}
-
-@media screen and (max-height: 770px) {
-  p {
-    font-size: 50px;
-  }
-}
