@@ -125,12 +125,12 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
   z-index: 0;
 }
 
 .card {
-  
+  overflow-y: auto;
   background: #292b2f;
   width: 345px;
   max-height: 95%;
