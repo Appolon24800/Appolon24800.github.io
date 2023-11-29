@@ -1,202 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="./assets/index/css/style.css?v=1" />
+  <html lang="en">
+
   <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./assets/index/css/style.css?v=1" />
-    <html lang="en"><head>
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-          <meta charset="UTF-8">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <meta content="> appolon.dev <" property="og:title">
-          <meta content="Hi im Appolon#2523" property="og:description">
-          <meta content="https://Appolon.dev property=" og:url>
-          <meta content="https://images-ext-2.discordapp.net/external/nBnOU2n5_g8F13A7nnwKvOCrUCh3cbJQX1uzwffIx-k/https/r2.e-z.host/db7d1d92-e2b1-474e-ab4f-c298b5d3fb41/katspe84.png" property="og:image">
-          <meta content="#6b0000" data-react-helmet="true" name="theme-color">
-          <script src="https://www.google.com/recaptcha/api.js?render=6LdeHNMnAAAAAHNTLhHA3DDgLp5QHzOi4cd1ZWv2"></script>
-		  <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/1118656570042105887/1143474423345721465/icon.ico" type="image/x-icon">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="appolon.dev" property="og:title">
+    <meta content="Hi im Appolon" property="og:description">
+    <meta content="https://Appolon.dev property=" og:url>
+    <meta content="https://api.appolon.dev/download/appolonesthot.png" property="og:image">
+    <meta content="#6b0000" data-react-helmet="true" name="theme-color">
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdeHNMnAAAAAHNTLhHA3DDgLp5QHzOi4cd1ZWv2"></script>
+    <link rel="shortcut icon" href="https://api.appolon.dev/download/appolonicon.ico" type="image/x-icon">
+
     <script>
 
-      const titles = [
-        "Appolon.dev", "Appolon.de", "Appolon.d", "Appolon.", "Appolon",
-        "Appolo", "Appol", "Appo", "App", "Ap", "A", "Ap", "App",
-        "Appo", "Appol", "Appolo", "Appolon", "Appolon.", "Appolon.d",
-        "Appolon.de", "Appolon.dev", "ppolon.dev", "polon.dev", "olon.dev", "lon.dev", "on.dev", "o.dev", ".dev", "dev", "ev", "v", "ev", "dev", "o.dev", "lon.dev", "olon.dev", "polon.dev", "ppolon.dev", "Appolon.dev"
+      function title() {
+        const titles = [
+          "Appolon.dev", "Appolon.de", "Appolon.d", "Appolon.",
+          "Appolon", "Appolo", "Appol", "Appo", "App", "Ap",
+          "A", "Ap", "App", "Appo", "Appol", "Appolo",
+          "Appolon", "Appolon.", "Appolon.d", "Appolon.de",
+          "Appolon.dev", "ppolon.dev", "polon.dev", "olon.dev",
+          "lon.dev", "on.dev", "o.dev", ".dev", "dev", "ev",
+          "v", "ev", "dev", "o.dev", "lon.dev", "olon.dev",
+          "polon.dev", "ppolon.dev", "Appolon.dev"
+        ];
+      
+        let currentIndex = 0;
+        document.title = titles[currentIndex];
+      
+        function updateTitle() {
+          currentIndex = (currentIndex + 1) % titles.length;
+          document.title = titles[currentIndex];
+        }
+      
+        setInterval(updateTitle, 100);
+      }
+
+      title();
+      const note = [
+        "This guy cool",
+        "note.exe",
+        "note.txt",
+        "note Note = 'Custom note'",
+        "ass website no?",
+        "Click for add a note",
+        "Can you write something here please",
+        "Buy SelfCTRL NOW --> selfctrl.appolon.dev",
+        "Rise > Moon ?",
+        "Moon > Rise ?",
+        "Lunar > Badlion",
+        "Astolfo > Rise ?",
+        "Rise > Astolfo ?"
       ];
 
-      let currentIndex = 0;
-
-      function changeTitle() {
-        document.title = titles[currentIndex];
-        currentIndex = (currentIndex + 1) % titles.length;
-        setTimeout(changeTitle, 100);
+      function randomnote() {
+        const randomText = note[Math.floor(Math.random() * note.length)];
+        const textareaObject = document.getElementById("randomTextarea");
+        textareaObject.placeholder = randomText;
       }
-      changeTitle()
 
+      window.addEventListener("load", randomnote);
+
+      function sendmessage(message) {
+        const req = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'message': message
+          },
+        };
+        fetch('https://api.appolon.dev/index/message', req)
+          .then(response => { return response.json(); })
+          .then(data => { ntf('Message sent!') })
+          .catch(error => { ntf('Error: ', error) })
+
+        const inputElement = document.querySelector('.message');
+        inputElement.value = '';
+      }
       
-    </script>
-    
-  </head>
-  <body>
+      function ntf(message) {
+        var notification = document.createElement("div");
+        notification.className = "notification";
+        document.body.appendChild(notification);
+        notification.innerHTML = message;
+        setTimeout(function () {
+          notification.style.top = "10px";
+          notification.style.opacity = "1";
+        }, 10);
 
-    <audio autoplay="autoplay">
-      <source src="assets\index\moment.mp3" type="audio/mpeg">
-    </audio>
+        setTimeout(function () {
+          notification.style.top = "-100px";
+          notification.style.opacity = "1";
+        }, 5000);
 
-    <script>
-      document.getElementById('vid').play();
+        setTimeout(function () {
+          document.body.removeChild(notification)
+        }, 5600);
+      }
+
     </script>
-  
-    
-    <div class="card-container">
-      <div class="card nitro-card">
-        <div class="card-header">
-          <div
-            style="background: url('./assets/index/img/banner.gif')"
-            class="banner-img"
-          ></div>
+
+<body>
+  <div class="card-container">
+    <div class="card nitro-card">
+      <div class="card-header">
+        <div style="background: url('./assets/index/img/banner.gif')" class="banner-img"></div>
+      </div>
+      <div class="card-body">
+        <div class="profile-header">
+          <div class="profil-logo">
+            <img src="./assets/index/img/logo.webp" />
+          </div>
         </div>
-        <div class="card-body">
-          <div class="profile-header">
-            <div class="profil-logo">
-              <img src="./assets/index/img/logo.webp" />
-            </div>
-            <div class="badges-container">
-              <div class="badge-item">
-                <img src="./assets/index/img/badges/briliance.png" alt="" />
-                <div class="tooltip tooltip-up">HypeSquad briliance</div>
-              </div>
-              <div class="badge-item">
-                <img src="./assets/index/img/badges/legacyusername.png" alt="" />
-                <div class="tooltip tooltip-up">Originaly know as appolon248001</div>
-              </div>
-              <div class="badge-item">
-                <img src="./assets/index/img/badges/dev.PNG" alt="" />
-                <div class="tooltip tooltip-up">
-                  A real active developer
-                </div>
-              </div>
-              <div class="badge-item">
-                <img src="./assets/index/img/badges/nitro.webp" alt="" />
-                <div class="tooltip tooltip-up">
-                  I don't realy have nitro btw
-                </div>
-              </div>
-              <div class="badge-item">
-                <img src="./assets/index/img/badges/boost.webp" alt="" />
-                <div class="tooltip tooltip-up">
-                  This one is prety cool
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="profile-body">
-            <div class="username">
-              Appolon
-            </div>
-            <hr />
-            <div class="basic-infos">
-              <div class="category-title">About Me</div>
+        <div class="profile-body">
+          <div class="username">Appolon</div>
+          <hr />
+          <div class="basic-infos">
+            <div class="category-title">About Me</div>
+            <p>
+              [ <a href="https://appolon.dev" target="_blank">appolon.dev</a> ]
               <br>
-              <p>
-                [ <a href="https://appolon.dev" target="_blank">appolon.dev</a> ]
-                <br>
-                [ <a href="https://e-z.bio/Appolon" target="_blank">e-z.bio/appolon</a> ]
-                <br>
-                -------------------------
-                <br>
-                First account: 456226577798135808
-                <br>
-              </p>
-            </div>
-            <div class="basic-infos">
-              <div class="category-title">Member Since</div>
-              <p>Jun 13, 2018</p>
-            </div>
-
-            <div class="note">
-              <div class="category-title">Note</div>
-              <textarea id="randomTextarea"></textarea>
-            </div>
-          
-            <script>
-              const note = [
-                "This guy cool",
-                "note.exe",
-                "note.txt",
-                "note Note = 'Custom note'",
-                "ass website no?",
-                "Click for add a note",
-                "Can you write something here please",
-                "Join the ALtDB discord now!",
-                "Rise > Moon ?",
-                "Moon > Rise ?",
-                "Lunar > Badlion"
-              ];
-          
-              function setRandomTextareaText() {
-                const randomText = note[Math.floor(Math.random() * note.length)];
-                const textareaObject = document.getElementById("randomTextarea");
-                textareaObject.placeholder = randomText;
-              }
-          
-              window.addEventListener("load", setRandomTextareaText);
-            </script>
-            
-            
-            <a href="https://altdb.appolon.dev/" target="_blank" class="btn">AltDB discord</a>
-            <a href="https://e-z.bio/appolon" target="_blank" class="btn">E-Z.bio/Appolon</a>
-            <a href="https://github.appolon.dev/" target="_blank" class="btn">Github</a>
-            <a href="https://www.youtube.com/@whostealmyfuckingusername" target="_blank" class="btn2">Youtube</a>
-            <a href="https://Selfctrl.appolon.dev/" target="_blank" class="btn2">SelfBOT</a>
-
-            <script>
-                function sendmessage(message) {
-				            if (message.length <= 0) {
-					            alert("This message is null");
-				            }
-                    if (message.length >= 400) {
-                        alert("The message max length is 400");
-			                  console.log('There is also a verification server side btw')
-                    } else {
-                        const url = 'https://api.appolon.dev/index/message';                                           
-
-                        const req = {
-                          method: 'POST',
-                          headers: {
-                            'Content-Type': 'application/json',
-                            'message': message
-                          },
-                        };                        
-                        fetch(url, req)
-                          .then(response => {
-                            return response.json();
-                          })
-                          .then(data => {
-                            console.log('Resp:', data);
-				  alert('Success')
-				  inputElement.value = '';
-                          })
-                          .catch(error => {
-                            console.error('Error: ', error);
-                          });
-
-                    }
-                    const inputElement = document.querySelector('.message');
-
-                    inputElement.value = '';
-                }
-            </script>
-
-      </head>
-      <body>
-          <div class="message">
-              <input type="text" onkeydown="if (event.key === 'Enter') sendmessage(this.value)" placeholder="Want to contact me ?"/>
+              [ <a href="https://ez.appolon.dev" target="_blank">e-z.bio</a> ]
+              <br>
+            </p>
           </div>
-          </div>  
+          <div class="basic-infos">
+            <div class="category-title">Member Since</div>
+            <p>Jun 13, 2018</p>
+          </div>
+
+          <div class="note">
+            <div class="category-title">Note</div>
+            <textarea placeholder="loading..." id="randomTextarea"></textarea>
+          </div>
+
+          <a title="My E-Z.bio link" href="https://ez.appolon.dev" target="_blank" class="btn">E-Z.bio</a>
+          <a title="My github (website src here)" href="https://github.appolon.dev/" target="_blank" class="btn">Github</a>
+          <a title="My youtube" href="https://www.youtube.com/@whostealmyfuckingusername" target="_blank" class="btn">Youtube</a>
+          <a title="A 5$ Discord SelfBOT" href="https://selfctrl.appolon.dev/" target="_blank" class="btn">SelfCTRL</a>
+
+          </head>
+
+          <body>
+            <div class="message">
+
+              <input title="This will send me a message (Via a discord webhook)" type="text" onkeydown="if (event.key === 'Enter') {sendmessage(this.value); this.value = ''}"
+                placeholder="Want to send me a message?" />
+
+            </div>
         </div>
       </div>
     </div>
-	
-  </body>
+  </div>
+</body>
+
 </html>
