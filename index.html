@@ -70,9 +70,10 @@
       }
 	  
 	  function perror() {
-		const params = new URLSearchParams(window.location.href.search);
+		const params = new URLSearchParams(window.location.search);
 		if (params.has('error')) {
-			ntf(params.get('error')
+			console.log(params.get('error'))
+			ntf(params.get('error'))
 		}
 	  }
 
