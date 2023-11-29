@@ -3,19 +3,21 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="./assets/index/css/style.css?v=2" />
+  <link rel="stylesheet" href="./assets/index/css/style.css?v=3" />
   <html lang="en">
 
   <head>
+  
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="appolon.dev" property="og:title">
-    <meta content="Hi im Appolon" property="og:description">
-    <meta content="https://Appolon.dev property=" og:url>
-    <meta content="https://api.appolon.dev/download/appolonesthot.png" property="og:image">
+    <meta content="Appolon <--" property="og:title">
+    <meta content="Hela good description" property="og:description">
+    <meta content="https://appolon.dev property=" og:url>
+    <meta content="https://api.appolon.dev/download/renderbg.jpg" property="og:image">
     <meta content="#6b0000" data-react-helmet="true" name="theme-color">
+	
     <script src="https://www.google.com/recaptcha/api.js?render=6LdeHNMnAAAAAHNTLhHA3DDgLp5QHzOi4cd1ZWv2"></script>
     <link rel="shortcut icon" href="https://api.appolon.dev/download/appolonicon.ico" type="image/x-icon">
 
@@ -33,15 +35,15 @@
           "polon.dev", "ppolon.dev", "Appolon.dev"
         ];
       
-        let currentIndex = 0;
-        document.title = titles[currentIndex];
+        let i = 0;
+        document.title = titles[i];
       
-        function updateTitle() {
-          currentIndex = (currentIndex + 1) % titles.length;
-          document.title = titles[currentIndex];
+        function update() {
+          i = (i + 1) % titles.length;
+          document.title = titles[i];
         }
       
-        setInterval(updateTitle, 100);
+        setInterval(update, 100);
       }
 
       title();
@@ -66,8 +68,16 @@
         const textareaObject = document.getElementById("randomTextarea");
         textareaObject.placeholder = randomText;
       }
+	  
+	  function perror() {
+		const params = new URLSearchParams(window.location.href.search);
+		if (params.has('error')) {
+			ntf(params.get('error')
+		}
+	  }
 
       window.addEventListener("load", randomnote);
+	  window.addEventListener("load", perror);
 
       function sendmessage(message) {
         const req = {
@@ -152,7 +162,7 @@
           <body>
             <div class="message">
 
-              <input title="This will send me a message (Via a discord webhook)" type="text" onkeydown="if (event.key === 'Enter') {sendmessage(this.value); this.value = ''}"
+              <input title="This will send me a message (Via a discord webhook)" type="text" onkeydown="if (event.key === 'Enter' || event.keyCode === 13) {sendmessage(this.value); this.value = ''}"onkeydown="if (event.key === 'Enter') {sendmessage(this.value); this.value = ''}"
                 placeholder="Want to send me a message?" />
 
             </div>
