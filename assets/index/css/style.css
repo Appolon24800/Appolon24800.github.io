@@ -6,6 +6,7 @@
      box-sizing: border-box;
 }
  .typed-text {
+    background-size: cover;
     color: #000000;
     text-decoration: none;
     text-align: right;
@@ -57,7 +58,7 @@
 }
  body {
      margin: 0;
-     max-width: 80%;
+     max-width: 120%;
 }
  input:focus::placeholder {
     color: transparent;
@@ -84,17 +85,18 @@
      justify-content: center;
      align-items: center;
      height: auto;
-     z-index: 0;
      margin-left: 330px;
 }
  .card {
+     position: absolute;
      overflow: hidden;
      background: #292b2f;
      width: 345px;
      max-height: 95%;
      height: max-content;
      border-radius: 9px;
-     box-shadow: 0px 0px 15px 6px #000000 
+     box-shadow: 0px 0px 15px 6px #000000;
+     transform: translateX(-30%);
 }
  .card-header .banner {
   width: 120%;
@@ -142,7 +144,7 @@
      display: flex;
      flex-wrap: wrap;
      justify-content: flex-end;
-     max-width: 150px;
+     max-width: 100%;
      background: #18191c;
      border-radius: 7px;
      padding: 3px;
