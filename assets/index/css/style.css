@@ -84,6 +84,7 @@
      display: flex;
      justify-content: center;
      align-items: center;
+     overflow: hidden;
      height: auto;
      margin-left: 330px;
 }
@@ -327,9 +328,12 @@
 }
  @media (max-height: 760px) {
     .card {
-      overflow: auto;
+      overflow-y: auto;
       height: 600px;
       border-radius: 15px;
+    }
+    .grecaptcha-badge { 
+        visibility: hidden;
     }
   }
  @media (max-height: 630px) {
@@ -338,7 +342,7 @@
     }
 }
   
- @media (max-width: 1150px) {
+ @media (max-width: 820px) {
     .typed-text {
       height: 0;
     }
