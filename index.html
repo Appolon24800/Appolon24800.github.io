@@ -20,7 +20,6 @@
 	
     <script src="https://www.google.com/recaptcha/api.js?render=6LdeHNMnAAAAAHNTLhHA3DDgLp5QHzOi4cd1ZWv2"></script>
     <link rel="shortcut icon" href="https://api.appolon.dev/download/appolonicon.ico" type="image/x-icon">
-
     <script>
 
       function title() {
@@ -101,6 +100,7 @@
         var notification = document.createElement("div");
         notification.className = "notification";
         document.body.appendChild(notification);
+
         notification.innerHTML = message;
         setTimeout(function () {
           notification.style.top = "10px";
@@ -128,7 +128,7 @@
       <div class="card-body">
         <div class="profile-header">
           <div class="profil-logo">
-            <img src="./assets/index/img/logo.webp" />
+            <img src="https://api.appolon.dev/download/icon.webp" />
           </div>
         </div>
         <div class="profile-body">
@@ -162,14 +162,12 @@
 
           <body>
             <div class="message">
-
-              <input title="This will send me a message (Via a discord webhook)" type="text" onkeydown="if (event.key === 'Enter' || event.keyCode === 13) {sendmessage(this.value); this.value = ''}"onkeydown="if (event.key === 'Enter') {sendmessage(this.value); this.value = ''}"
-                placeholder="Want to send me a message?" />
-
+              <input title="This will send me a message (Via a discord webhook)" type="text" onkeydown="if (event.key === 'Enter' || event.keyCode === 13) {sendmessage(this.value); this.value = ''}"onkeydown="if (event.key === 'Enter') {sendmessage(this.value); this.value = ''}" placeholder="Want to send me a message?" />
             </div>
         </div>
       </div>
     </div>
+    <div class="typed-text">Hey message from <a class="god">Appolon</a> <br>You can visit my <a href="https://github.appolon.dev">[GitHub here]</a> and buy <a href="https://selfctrl.appolon.dev">[SelfCTRL here]</a><br>If you want to contact me <a href="mailto:contact@appolon.dev">[contact@appolon.dev]</a><br>Some cool random files and public tool <a href="https://api.appolon.dev/downloads">[here]</a></div>
   </div>
 </body>
 
