@@ -359,9 +359,11 @@
 }
 
 @media (max-width: 955px) {
+    
     .typed-text {
         height: 0px;
     }
+
     .card-container {
         display: flex;
         align-items: center;
@@ -383,10 +385,5 @@
         transform: translateX(0);
     }
     
-
-}
-@media (max-width: 840px) {
-    
-
 }
 
