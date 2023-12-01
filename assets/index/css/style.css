@@ -6,26 +6,20 @@
      box-sizing: border-box;
 }
  .typed-text {
-    background-size: cover;
-    color: #000000;
+    padding-right: 10px;
+    background-size: 120%;
+    color: #ffffff;
     text-decoration: none;
     text-align: right;
     direction: rtl;
     overflow-x: hidden;
     font-family: monospace;
+    font-size: large;
     animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
     position: absolute;
     top: 50%;
     right: 30px;
     transform: translateY(-50%);
-}
-@keyframes fall {
-    0% {
-        transform: translateY(-100vh);
-    }
-    100% {
-        transform: translateY(100vh);
-    }
 }
  .typed-text a {
     animation: aanim 3s infinite;
@@ -40,28 +34,24 @@
     animation: godanim 3s infinite;
 }
  .typed-text a:hover {
-    font-size: large;
+    animation: ahover 0.3s linear;
+    animation: aanim 3s infinite;
+    padding-right: 20px;
 }
-@keyframes typing { from { width: 0 } to { width: 100% } }
+@keyframes typing { from { width: 0% } to { width: 100% } }
+@keyframes ahover { from { padding-right: 10px } to { padding-right: 20px; } }
 @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: orange; } }
-@keyframes godanim {
-    0% { color: gold; text-shadow: 0 0 5px gold; }
-    50% { color: rgb(211, 226, 0); text-shadow: 0 0 10px gold; }
-    100% { color: gold; text-shadow: 0 0 5px gold; }
-}
-@keyframes aanim {
-    0% { color: rgb(255, 0, 0); text-shadow: 0 0 5px rgb(255, 0, 0); }
-    50% { color: rgb(210, 0, 0); text-shadow: 0 0 10px rgb(235, 0, 0); }
-    100% { color: rgb(235, 0, 0); text-shadow: 0 0 5px rgb(255, 0, 0); }
-}
+@keyframes godanim { 0% { color: gold; text-shadow: 0 0 5px rgb(177, 150, 0); } 50% { color: gold; text-shadow: 0 0 10px rgb(255, 225, 54); } 100% { color: gold; text-shadow: 0 0 5px rgb(104, 88, 0); } }
+@keyframes aanim { 0% { color: rgb(255, 0, 0); text-shadow: 0 0 5px rgb(255, 0, 0); } 50% { color: rgb(210, 0, 0); text-shadow: 0 0 10px rgb(235, 0, 0); } 100% { color: rgb(235, 0, 0); text-shadow: 0 0 5px rgb(255, 0, 0); } }
  html {
      height: 100%;
      overflow-y: hidden;
      overflow-x: hidden;
      display: flex;
      align-items: center;
-     background: url('https://api.appolon.dev/download/renderbg.jpg'); 
-     
+     background: url('https://api.appolon.dev/download/renderbg.jpg');
+     background-position: bottom;
+     background-repeat: no-repeat;
 }
  .notification {
      color: white;
@@ -299,10 +289,12 @@
      color: #eeeeee;
      margin-top: 14px;
 }
- .nitro-card {
-     background-image: linear-gradient(0, #300000, #002325);
-     background-color: #0000006c;
+.nitro-card {
+    background-image: linear-gradient(0, #300000, #002325);
+    background-color: #0000006c;
+    background-attachment: fixed;
 }
+
  .nitro-card:before {
      content: "";
      position: absolute;
@@ -351,11 +343,6 @@
     from { opacity: 1; }
     to { opacity: 0;height: 0px; }
 }
-@keyframes fadeOut2 {
-    from { opacity: 1; }
-    to { opacity: 0;height: 0px; }
-}
-
  @media (max-height: 880px) {
     .card {
         overflow-y: scroll;
@@ -370,8 +357,11 @@
     }
 
 }
-  
-@media (max-width: 880px) {
+
+@media (max-width: 955px) {
+    .typed-text {
+        height: 0px;
+    }
     .card-container {
         display: flex;
         align-items: center;
@@ -392,9 +382,11 @@
         height: max-content;
         transform: translateX(0);
     }
+    
 
-    .typed-text {
-        animation: fadeOut 0.5s ease forwards;
-    }
+}
+@media (max-width: 840px) {
+    
+
 }
 
