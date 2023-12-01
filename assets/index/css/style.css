@@ -355,10 +355,16 @@
     from { opacity: 1; }
     to { opacity: 0;height: 0px; }
 }
-.card::-webkit-scrollbar  {
-    display: none;
-}
+
  @media (max-height: 880px) {
+    .card {
+        overflow-y: scroll;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .card::-webkit-scrollbar  {
+        display: none;
+    }
     .grecaptcha-badge { 
         animation: fadeOut 0.5s ease forwards;
     }
