@@ -1,11 +1,13 @@
 @import url("../font/style.css");
- * {
-     margin: 0;
-     padding: 0;
-     font-family: "Whitney", sans-serif;
-     box-sizing: border-box;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Whitney", sans-serif;
+    box-sizing: border-box;
 }
- .typed-text {
+
+.typed-text {
     padding-right: 10px;
     background-size: 120%;
     color: #ffffff;
@@ -21,7 +23,8 @@
     right: 30px;
     transform: translateY(-50%);
 }
- .typed-text a {
+
+.typed-text a {
     animation: aanim 3s infinite;
     color: #cc0000;
     text-decoration: none;
@@ -30,336 +33,459 @@
     overflow-x: hidden;
     font-family: monospace;
 }
- .typed-text .god {
+
+.typed-text .god {
     animation: godanim 3s infinite;
 }
- .typed-text a:hover {
+
+.typed-text a:hover {
     animation: ahover 0.3s linear;
     animation: aanim 3s infinite;
     padding-right: 20px;
 }
-@keyframes typing { from { width: 0% } to { width: 100% } }
-@keyframes ahover { from { padding-right: 10px } to { padding-right: 20px; } }
-@keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: orange; } }
-@keyframes godanim { 0% { color: gold; text-shadow: 0 0 5px rgb(177, 150, 0); } 50% { color: gold; text-shadow: 0 0 10px rgb(255, 225, 54); } 100% { color: gold; text-shadow: 0 0 5px rgb(104, 88, 0); } }
-@keyframes aanim { 0% { color: rgb(255, 0, 0); text-shadow: 0 0 5px rgb(255, 0, 0); } 50% { color: rgb(210, 0, 0); text-shadow: 0 0 10px rgb(235, 0, 0); } 100% { color: rgb(235, 0, 0); text-shadow: 0 0 5px rgb(255, 0, 0); } }
- html {
-     height: 100%;
-     overflow-y: hidden;
-     overflow-x: hidden;
-     display: flex;
-     align-items: center;
-     background: url('https://api.appolon.dev/download/renderbg.jpg');
-     background-position: bottom;
-     background-repeat: no-repeat;
+
+@keyframes typing {
+    from {
+        width: 0%
+    }
+
+    to {
+        width: 100%
+    }
 }
- .notification {
-     color: white;
-     position: fixed;
-     right: 10px;
-     top: -100px;
-     padding: 10px;
-     opacity: 0;
-     transition: top 0.5s, opacity 0.5s;
-     border-radius: 5px;
-     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-     backdrop-filter: blur(6.5px);
+
+@keyframes ahover {
+    from {
+        padding-right: 10px
+    }
+
+    to {
+        padding-right: 20px;
+    }
 }
- body {
-     margin: 0;
-     max-width: 120%;
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: orange;
+    }
 }
- input:focus::placeholder {
+
+@keyframes godanim {
+    0% {
+        color: gold;
+        text-shadow: 0 0 5px rgb(177, 150, 0);
+    }
+
+    50% {
+        color: gold;
+        text-shadow: 0 0 10px rgb(255, 225, 54);
+    }
+
+    100% {
+        color: gold;
+        text-shadow: 0 0 5px rgb(104, 88, 0);
+    }
+}
+
+@keyframes aanim {
+    0% {
+        color: rgb(255, 0, 0);
+        text-shadow: 0 0 5px rgb(255, 0, 0);
+    }
+
+    50% {
+        color: rgb(210, 0, 0);
+        text-shadow: 0 0 10px rgb(235, 0, 0);
+    }
+
+    100% {
+        color: rgb(235, 0, 0);
+        text-shadow: 0 0 5px rgb(255, 0, 0);
+    }
+}
+
+html {
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    background: url('https://api.appolon.dev/download/renderbg.jpg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+}
+
+.notification {
+    color: white;
+    position: fixed;
+    right: 10px;
+    top: -100px;
+    padding: 10px;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.5s;
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6.5px);
+}
+
+body {
+    margin: 0;
+    max-width: 120%;
+}
+
+input:focus::placeholder {
     color: transparent;
 }
- .btn {
-     display: flex;
-     align-items: center;
-     justify-content: center;
-     text-decoration: none;
-     background-color: #6d5cff;
-     padding: 10px;
-     border-radius: 3px;
-     color: #fff;
-     font-size: 0.85rem;
-     transition: 0.2s ease-in-out;
-     margin-top: 12px;
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #6d5cff;
+    padding: 10px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 0.85rem;
+    transition: 0.2s ease-in-out;
+    margin-top: 12px;
 }
- .btn:hover {
-     background-color: #4752c4;
+
+.btn:hover {
+    background-color: #4752c4;
 }
- .card-container {
-     animation: fadeIn 0.5s ease-in-out;
-     display: flex;
-     border-radius: 9px !important;
-     align-items: center;
-     overflow: hidden;
-     margin-left: auto;
-     margin-right: auto;
-     margin-left: 200px;
+
+.card-container {
+    animation: fadeIn 0.5s ease-in-out;
+    display: flex;
+    border-radius: 9px !important;
+    align-items: center;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: 200px;
 }
- .card {
-     position: fixed;
-     margin: auto;
-     overflow: hidden;
-     background: #292b2f;
-     width: 345px;
-     max-height: 95%;
-     height: max-content;
-     border-radius: 9px;
-     box-shadow: 0px 0px 15px 6px #000000 !important;
-     transform: translateX(-30%);
+
+.card {
+    position: fixed;
+    margin: auto;
+    overflow: hidden;
+    background: #292b2f;
+    width: 345px;
+    max-height: 95%;
+    height: max-content;
+    border-radius: 9px;
+    box-shadow: 0px 0px 15px 6px #000000 !important;
+    transform: translateX(-30%);
 }
- .card-header .banner {
-     width: 120%;
-     min-height: 120%;
-     overflow-y: scroll;
-     background: #ff8527;
-     border-radius: 6px 6px 0 0;
+
+.card-header .banner {
+    width: 120%;
+    min-height: 120%;
+    overflow-y: scroll;
+    background: #ff8527;
+    border-radius: 6px 6px 0 0;
 }
- .card-header .banner-img {
-     width: 100%;
-     height: 115px;
-     background-position: center;
-     background-size: 100% auto;
-     border-radius: 6px 6px 0 0;
+
+.card-header .banner-img {
+    width: 100%;
+    height: 115px;
+    background-position: center;
+    background-size: 100% auto;
+    border-radius: 6px 6px 0 0;
 }
- .card-body {
-     padding: 15px;
-     position: relative;
+
+.card-body {
+    padding: 15px;
+    position: relative;
 }
- .card-body .profile-header {
-     overflow: auto;
-     position: absolute;
-     display: flex;
-     flex-direction: row;
-     align-items: flex-end;
-     justify-content: space-between;
-     width: calc(100% - 30px);
-     top: -50px;
+
+.card-body .profile-header {
+    overflow: auto;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: calc(100% - 30px);
+    top: -50px;
 }
- .card-body .profile-header .profil-logo {
-     position: relative;
-     border: 6px solid #292b2f;
-     border-radius: 50%;
+
+.card-body .profile-header .profil-logo {
+    position: relative;
+    border: 6px solid #292b2f;
+    border-radius: 50%;
 }
- .card-body .profile-header .profil-logo img {
-     display: block;
-     width: 80px;
-     height: 80px;
-     border-radius: 50%;
+
+.card-body .profile-header .profil-logo img {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
 }
- .card-body .profile-header .profil-logo:hover::before {
-     opacity: 1;
+
+.card-body .profile-header .profil-logo:hover::before {
+    opacity: 1;
 }
- .card-body .profile-header .badges-container {
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: flex-end;
-     max-width: 100%;
-     background: #18191c;
-     border-radius: 7px;
-     padding: 3px;
+
+.card-body .profile-header .badges-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 100%;
+    background: #18191c;
+    border-radius: 7px;
+    padding: 3px;
 }
- .card-body .profile-header .badges-container .badge-item {
-     position: relative;
-     margin: 5px;
-     width: 15px;
-     height: 15px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+
+.card-body .profile-header .badges-container .badge-item {
+    position: relative;
+    margin: 5px;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
- .card-body .profile-header .badges-container .badge-item img {
-     height: 100%;
+
+.card-body .profile-header .badges-container .badge-item img {
+    height: 100%;
 }
- .card-body .profile-header .badges-container .badge-item:hover > .tooltip {
-     transform: scale(1);
+
+.card-body .profile-header .badges-container .badge-item:hover>.tooltip {
+    transform: scale(1);
 }
- .card-body .profile-body {
-     background: #18191c;
-     border-radius: 6px;
-     padding: 13px;
-     margin-top: 40px;
+
+.card-body .profile-body {
+    background: #18191c;
+    border-radius: 6px;
+    padding: 13px;
+    margin-top: 40px;
 }
- .card-body .profile-body .username {
-     color: #eeeeee;
-     margin-bottom: 13px;
-     font-weight: 600;
-     font-size: 1.3rem;
-     display: flex;
-     flex-direction: row;
-     align-items: center;
+
+.card-body .profile-body .username {
+    color: #eeeeee;
+    margin-bottom: 13px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
- .card-body .profile-body .username span {
-     color: #b9bbbe;
+
+.card-body .profile-body .username span {
+    color: #b9bbbe;
 }
- .card-body .profile-body .username .badge {
-     font-size: 0.65rem;
-     background-color: #5865f2;
-     text-transform: uppercase;
-     font-weight: 300;
-     width: max-content;
-     padding: 2px 5px;
-     margin-left: 5px;
-     border-radius: 3px;
+
+.card-body .profile-body .username .badge {
+    font-size: 0.65rem;
+    background-color: #5865f2;
+    text-transform: uppercase;
+    font-weight: 300;
+    width: max-content;
+    padding: 2px 5px;
+    margin-left: 5px;
+    border-radius: 3px;
 }
- .card-body .profile-body hr {
-     border: none;
-     border-top: 0.5px solid #33353b;
+
+.card-body .profile-body hr {
+    border: none;
+    border-top: 0.5px solid #33353b;
 }
- .card-body .profile-body .category-title {
-     color: white;
-     font-weight: 700;
-     text-transform: uppercase;
-     font-size: 0.8rem;
-     margin-bottom: 8px;
+
+.card-body .profile-body .category-title {
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 8px;
 }
- .card-body .profile-body .basic-infos {
-     margin-bottom: 14px;
-     margin-top: 12px;
+
+.card-body .profile-body .basic-infos {
+    margin-bottom: 14px;
+    margin-top: 12px;
 }
- .card-body .profile-body .basic-infos p {
-     color: #bdbebf;
-     font-size: 0.9rem;
+
+.card-body .profile-body .basic-infos p {
+    color: #bdbebf;
+    font-size: 0.9rem;
 }
- .card-body .profile-body .basic-infos p a {
-     color: #02a5e6;
-     text-decoration: none;
+
+.card-body .profile-body .basic-infos p a {
+    color: #02a5e6;
+    text-decoration: none;
 }
- .card-body .profile-body .basic-infos p a:hover {
-     text-decoration: underline;
+
+.card-body .profile-body .basic-infos p a:hover {
+    text-decoration: underline;
 }
- .card-body .profile-body .basic-infos p b {
-     color: #ddd;
+
+.card-body .profile-body .basic-infos p b {
+    color: #ddd;
 }
- .card-body .profile-body .roles {
-     margin-bottom: 14px;
+
+.card-body .profile-body .roles {
+    margin-bottom: 14px;
 }
- .card-body .profile-body .roles .roles-list {
-     display: flex;
-     flex-wrap: wrap;
+
+.card-body .profile-body .roles .roles-list {
+    display: flex;
+    flex-wrap: wrap;
 }
- .card-body .profile-body .roles .roles-list .role {
-     background: #292b2f;
-     color: #f5f5f5;
-     border-radius: 3px;
-     font-size: 0.85rem;
-     font-weight: 300;
-     padding: 3px 6px;
-     margin-right: 4px;
-     margin-top: 4px;
-     display: flex;
-     align-items: center;
-     flex-direction: row;
+
+.card-body .profile-body .roles .roles-list .role {
+    background: #292b2f;
+    color: #f5f5f5;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    font-weight: 300;
+    padding: 3px 6px;
+    margin-right: 4px;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
 }
- .card-body .profile-body .roles .roles-list .role .role-color {
-     position: relative;
-     width: 11px;
-     height: 11px;
-     border-radius: 50%;
-     margin-right: 5px;
+
+.card-body .profile-body .roles .roles-list .role .role-color {
+    position: relative;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    margin-right: 5px;
 }
- .card-body .profile-body .note textarea {
-     border: none;
-     outline: none;
-     background: transparent;
-     width: 100%;
-     min-height: 30px;
-     color: #e0e0e0;
-     resize: none;
-     font-size: 0.8rem;
-     border-radius: 3px;
-     padding: 5px;
-     box-sizing: border-box;
+
+.card-body .profile-body .note textarea {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    min-height: 30px;
+    color: #e0e0e0;
+    resize: none;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    padding: 5px;
+    box-sizing: border-box;
 }
- .card-body .profile-body .note textarea::placeholder {
-     font-size: 0.8rem;
+
+.card-body .profile-body .note textarea::placeholder {
+    font-size: 0.8rem;
 }
- .card-body .profile-body .note textarea:focus::placeholder {
-     opacity: 0;
+
+.card-body .profile-body .note textarea:focus::placeholder {
+    opacity: 0;
 }
- .card-body .profile-body .message input {
-     background: transparent;
-     outline: none;
-     border: 1.2px solid #4b4b4b;
-     padding: 13px;
-     width: 100%;
-     border-radius: 4px;
-     color: #eeeeee;
-     margin-top: 14px;
+
+.card-body .profile-body .message input {
+    background: transparent;
+    outline: none;
+    border: 1.2px solid #4b4b4b;
+    padding: 13px;
+    width: 100%;
+    border-radius: 4px;
+    color: #eeeeee;
+    margin-top: 14px;
 }
+
 .nitro-card {
     background-image: linear-gradient(0, #300000, #002325);
     background-color: #0000006c;
     background-attachment: fixed;
 }
 
- .nitro-card:before {
-     content: "";
-     position: absolute;
-     top: 0;
-     right: 0;
-     bottom: 0;
-     left: 0;
-     z-index: -1;
-     margin: -5px;
-     border-radius: 122px;
+.nitro-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -5px;
+    border-radius: 122px;
 }
- .nitro-card .card-body .profile-body {
-     background: #18191c91;
+
+.nitro-card .card-body .profile-body {
+    background: #18191c91;
 }
- .nitro-card .card-body .profile-header .profil-logo {
-     position: relative;
-     border-color: transparent;
-     z-index: 0;
+
+.nitro-card .card-body .profile-header .profil-logo {
+    position: relative;
+    border-color: transparent;
+    z-index: 0;
 }
- .nitro-card .card-body .profile-header .profil-logo:after {
-     content: "";
-     position: absolute;
-     top: 0;
-     right: 0;
-     bottom: 0;
-     left: 0;
-     z-index: -1;
-     margin: -4px;
-     border-radius: 50%;
-     background-color: #000000;
+
+.nitro-card .card-body .profile-header .profil-logo:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -4px;
+    border-radius: 50%;
+    background-color: #000000;
 }
- .nitro-card .card-body .profile-header .badges-container {
-     background: #18191c77;
+
+.nitro-card .card-body .profile-header .badges-container {
+    background: #18191c77;
 }
- .nitro-card .card-body .profile-body {
-     background: #18191c4d;
-     border: 1px solid #3f4149;
-     padding: 10px;
-     max-width: 100%;
+
+.nitro-card .card-body .profile-body {
+    background: #18191c4d;
+    border: 1px solid #3f4149;
+    padding: 10px;
+    max-width: 100%;
 }
- @keyframes fadeIn {
-     from { opacity: 0; }
-     to { opacity: 1; }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
- @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0;height: 0px; }
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        height: 0px;
+    }
 }
- @media (max-height: 880px) {
+
+@media (max-height: 880px) {
     .card {
         overflow-y: scroll;
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
-    .card::-webkit-scrollbar  {
+
+    .card::-webkit-scrollbar {
         display: none;
     }
-    .grecaptcha-badge { 
+
+    .grecaptcha-badge {
         animation: fadeOut 0.5s ease forwards;
     }
 
 }
 
 @media (max-width: 955px) {
-    
+
     .typed-text {
         height: 0px;
     }
@@ -384,6 +510,5 @@
         height: max-content;
         transform: translateX(0);
     }
-    
-}
 
+}
