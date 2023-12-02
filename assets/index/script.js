@@ -76,11 +76,17 @@ function sendmessage(message) {
 }
 
 function ntf(message) {
+  const ntfs = document.body.querySelectorAll('.notification');
+
+  ntfs.forEach(notification => {
+      document.body.removeChild(notification);
+  }); 
+
   var notification = document.createElement("div");
   notification.className = "notification";
-  document.body.appendChild(notification);
-
   notification.innerHTML = message;
+  
+  document.body.appendChild(notification);
   setTimeout(function () {
     notification.style.top = "10px";
     notification.style.opacity = "1";

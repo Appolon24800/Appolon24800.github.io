@@ -4,7 +4,7 @@ body {
     animation: slidein 100s infinite alternate;
     animation-fill-mode: forwards;
     overflow: hidden;
-  }
+}
 
 div {
     display: flex;
@@ -13,7 +13,6 @@ div {
     height: 90vh;
     overflow: scroll;
 }
-
 
 h1 { 
     color: #111; 
