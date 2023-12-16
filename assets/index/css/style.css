@@ -24,6 +24,10 @@
     transform: translateY(-50%);
 }
 
+.spotifyembed {
+    height: 90px;
+}
+
 .typed-text a {
     animation: aanim 3s infinite;
     color: #cc0000;
@@ -43,6 +47,7 @@
     animation: aanim 3s infinite;
     padding-right: 20px;
 }
+
 
 @keyframes typing {
     from {
@@ -121,26 +126,9 @@ html {
     background-repeat: no-repeat;
 }
 
-.notification {
-    color: white;
-    position: fixed;
-    right: 10px;
-    top: -100px;
-    padding: 10px;
-    opacity: 0;
-    transition: top 0.5s, opacity 0.5s;
-    border-radius: 5px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(6.5px);
-}
-
 body {
     margin: 0;
     max-width: 120%;
-}
-
-input:focus::placeholder {
-    color: transparent;
 }
 
 .btn {
@@ -192,20 +180,22 @@ input:focus::placeholder {
     display: none;
 }
 
-.card-header .banner {
-    width: 120%;
-    min-height: 120%;
-    overflow-y: scroll;
-    background: #ff8527;
-    border-radius: 6px 6px 0 0;
-}
-
 .card-header .banner-img {
     width: 100%;
     height: 115px;
-    background-position: center;
-    background-size: 100% auto;
+    background: url('https://api.appolon.dev/download/sky.jpg');
+    background-size: 200% auto;
     border-radius: 6px 6px 0 0;
+    animation: moveBackground 2000000s linear infinite;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 10000000% 0;
+    }
 }
 
 .card-body {
@@ -241,34 +231,6 @@ input:focus::placeholder {
     opacity: 1;
 }
 
-.card-body .profile-header .badges-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    max-width: 100%;
-    background: #18191c;
-    border-radius: 7px;
-    padding: 3px;
-}
-
-.card-body .profile-header .badges-container .badge-item {
-    position: relative;
-    margin: 5px;
-    width: 15px;
-    height: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.card-body .profile-header .badges-container .badge-item img {
-    height: 100%;
-}
-
-.card-body .profile-header .badges-container .badge-item:hover>.tooltip {
-    transform: scale(1);
-}
-
 .card-body .profile-body {
     background: #18191c;
     border-radius: 6px;
@@ -284,21 +246,6 @@ input:focus::placeholder {
     display: flex;
     flex-direction: row;
     align-items: center;
-}
-
-.card-body .profile-body .username span {
-    color: #b9bbbe;
-}
-
-.card-body .profile-body .username .badge {
-    font-size: 0.65rem;
-    background-color: #5865f2;
-    text-transform: uppercase;
-    font-weight: 300;
-    width: max-content;
-    padding: 2px 5px;
-    margin-left: 5px;
-    border-radius: 3px;
 }
 
 .card-body .profile-body hr {
@@ -333,41 +280,6 @@ input:focus::placeholder {
     text-decoration: underline;
 }
 
-.card-body .profile-body .basic-infos p b {
-    color: #ddd;
-}
-
-.card-body .profile-body .roles {
-    margin-bottom: 14px;
-}
-
-.card-body .profile-body .roles .roles-list {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.card-body .profile-body .roles .roles-list .role {
-    background: #292b2f;
-    color: #f5f5f5;
-    border-radius: 3px;
-    font-size: 0.85rem;
-    font-weight: 300;
-    padding: 3px 6px;
-    margin-right: 4px;
-    margin-top: 4px;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-}
-
-.card-body .profile-body .roles .roles-list .role .role-color {
-    position: relative;
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    margin-right: 5px;
-}
-
 .card-body .profile-body .note textarea {
     border: none;
     outline: none;
@@ -382,14 +294,6 @@ input:focus::placeholder {
     box-sizing: border-box;
 }
 
-.card-body .profile-body .note textarea::placeholder {
-    font-size: 0.8rem;
-}
-
-.card-body .profile-body .note textarea:focus::placeholder {
-    opacity: 0;
-}
-
 .card-body .profile-body .message input {
     background: transparent;
     outline: none;
@@ -402,9 +306,13 @@ input:focus::placeholder {
 }
 
 .nitro-card {
-    background-image: linear-gradient(0, #300000, #002325);
-    background-color: #0000006c;
-    background-attachment: fixed;
+    /*background-image: url(https://api.appolon.dev/download/redsky.jpg);
+    background-size: cover;
+    background-position: center;
+    border: 6px solid #300000;
+    background-repeat: no-repeat;*/
+    background: linear-gradient(0, #300000, #002325);
+    
 }
 
 .nitro-card:before {
@@ -442,10 +350,6 @@ input:focus::placeholder {
     background-color: #000000;
 }
 
-.nitro-card .card-body .profile-header .badges-container {
-    background: #18191c77;
-}
-
 .nitro-card .card-body .profile-body {
     background: #18191c4d;
     border: 1px solid #3f4149;
@@ -461,38 +365,6 @@ input:focus::placeholder {
     to {
         opacity: 1;
     }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-        height: 0px;
-    }
-}
-
-@media (max-height: 880px) {
-
-    .grecaptcha-badge {
-        animation: fadeOut 0.5s ease forwards;
-    }
-
-}
-
-@media (max-height: 750px) {
-
-    .grecaptcha-badge {
-        animation: fadeOut 0.5s ease forwards;
-    }
-
-    .card {
-        max-height: 95vh;
-        overflow-y: auto;
-    }
-
 }
 
 @media (max-width: 935px) {
@@ -514,9 +386,11 @@ input:focus::placeholder {
     }
     
     .card {
+        max-height: 95vh;
         position: relative;
         margin: auto;
         width: 345px;
+        overflow-y: auto;
         max-height: auto;
         transform: translateX(0);
     }
