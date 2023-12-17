@@ -280,6 +280,19 @@ body {
     text-decoration: underline;
 }
 
+.notification {
+    color: white;
+    position: fixed;
+    right: 10px;
+    top: -100px;
+    padding: 10px;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.5s;
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6.5px);
+}
+
 .card-body .profile-body .note textarea {
     border: none;
     outline: none;
