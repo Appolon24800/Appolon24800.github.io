@@ -162,6 +162,7 @@ body {
 
 .card {
     overflow-y: scroll;
+    overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
     position: fixed;
