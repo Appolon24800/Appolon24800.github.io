@@ -155,7 +155,7 @@ function autoplayfix() {
           document.body.removeChild(text);
           document.body.removeChild(bg);
           body.forEach(element => document.body.appendChild(element));
-          musicinit();
+          spotifyinit();
       }, 500);
       document.removeEventListener('click', autoplayfix2);
   }
@@ -193,7 +193,7 @@ function pause() {
   }
 }
 
-function musicinit() {
+function spotifyinit() {
   fetch('https://api.appolon.dev/index/spotify')
       .then(response => response.json())
       .then(data => {
