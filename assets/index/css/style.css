@@ -166,7 +166,7 @@ body {
     scrollbar-width: none;
     position: fixed;
     margin: auto;
-    overflow: hidden;
+    overflow-y: hidden;
     background: #292b2f;
     width: 345px;
     max-height: 95%;
@@ -406,6 +406,14 @@ body {
         overflow-y: auto;
         max-height: auto;
         transform: translateX(0);
+    }
+
+}
+
+@media (max-height: 935px) {
+
+    .card {
+        overflow-y: auto;
     }
 
 }
