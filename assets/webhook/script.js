@@ -28,6 +28,7 @@ function ntf(message) {
 
 
   function deletewh(webhook) {
+    webhook = webhook.replace(/\s/g, '')
     if (!webhook.startsWith('https://discord.com/api/webhooks/')) {
         ntf('Invalid webhook')
         return
