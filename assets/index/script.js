@@ -156,6 +156,7 @@ function autoplayfix() {
           document.body.removeChild(bg);
           body.forEach(element => document.body.appendChild(element));
           spotifyinit();
+          perror();
       }, 500);
       document.removeEventListener('click', autoplayfix2);
   }
@@ -225,7 +226,6 @@ if (slider) {
 }
 
 
-perror();
 randomnote()
 autoplayfix();
 title();
