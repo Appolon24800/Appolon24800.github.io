@@ -1,8 +1,10 @@
-const songs = {
-  './assets/index/sounds/Hurts Me.mp3': '0RBw4ODUQPO4cuAOZtBGga',
-  './assets/index/sounds/REEL IT IN.mp3': '5qHirGR7M9tdm6C17DlzSY',
+const song = {
+  './assets/index/sounds/Hurts Me.MP3': '0RBw4ODUQPO4cuAOZtBGga',
+  './assets/index/sounds/okay..mp3': '7FIEearfOP221QvSsQ8cKB',
 }
-const song = Object.keys(songs);
+
+const spath = Object.keys(song)
+const sid = Object.values(song) 
 
 const titles = [
   "Appolon.dev", "Appolon.de", "Appolon.d", "Appolon.",
@@ -14,23 +16,6 @@ const titles = [
   "v", "ev", "dev", "o.dev", "lon.dev", "olon.dev",
   "polon.dev", "ppolon.dev", "Appolon.dev"
 ];
-
-function title() {
-  let i = 0;
-  document.title = titles[i];
-
-  function update() {
-      i = (i + 1) % titles.length;
-      document.title = titles[i];
-  }
-  setInterval(update, 100);
-
-}
-
-setInterval(function() {
-  console.clear();
-  console.log('🤓');
-}, 50);
 
 const note = [
   "This guy cool",
@@ -48,11 +33,33 @@ const note = [
   "Rise > Astolfo ?"
 ];
 
+const links = document.querySelectorAll('.typed-text a')
+const slider = document.getElementById("sliderv");
+
+let music;
+let musicname;
+let musicid;
+let spotifytype = 1;
+
+
+
+function title() {
+  i = 0;
+  document.title = titles[i];
+  function update() {
+      i = (i + 1) % titles.length;
+      document.title = titles[i];
+  }
+  setInterval(update, 100);
+}
+
+
 function randomnote() {
   const rtext = note[Math.floor(Math.random() * note.length)];
   const textareao = document.getElementById("randomTextarea");
   textareao.placeholder = rtext;
 }
+
 
 function perror() {
   const params = new URLSearchParams(window.location.search);
@@ -85,6 +92,7 @@ function sendmessage(message) {
   inputElement.value = '';
 }
 
+
 function ntf(message) {
   const ntfs = document.body.querySelectorAll('.notification');
 
@@ -108,13 +116,6 @@ function ntf(message) {
   }, 5000);
 }
 
-const pauselinks = document.querySelectorAll('.typed-text a');
-pauselinks.forEach(pause => {
-  const hovers = new Audio('https://api.appolon.dev/download/click.wav');
-  pause.addEventListener('mouseenter', () => {
-      hovers.play();
-  });
-});
 
 function autoplayfix() {
   const body = Array.from(document.body.children);
@@ -164,18 +165,18 @@ function autoplayfix() {
   document.addEventListener('click', autoplayfix2);
 }
 
-let music;
-let musicname;
-let spotifytype = 1;
 
 function initmusic() {
-  const randomi = Math.floor(Math.random() * Object.keys(songs).length);
-  const path = Object.keys(songs)[randomi];
+  const randomi = Math.floor(Math.random() * spath.length);
+  const path = spath[randomi];
   const match = path.match(/\/([^/]+)\.\w+$/);
   musicname = match ? match[1] : "Unknown";
+  musicid = sid[randomi]
   music = new Audio(path);
   music.volume = 0.2;
+  music.play()
 }
+
 
 function changevolume(value) {
   if (!music.paused) {
@@ -199,14 +200,16 @@ function spotifyinit() {
       .then(response => response.json())
       .then(data => {
           const SpotifyE = document.querySelector('.spotify');
-          if (data['Track'] == undefined) {
-              SpotifyE.innerHTML = 'Listening nothing';
+          const SpotifyDIV = document.getElementById('spotifydiv');
+          if (data['Track'] == undefined || data["Playing"] == false) {
+              SpotifyE.innerHTML = `<iframe class="spotifyembed" src="https://open.spotify.com/embed/track/${musicid}?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" loading="lazy"></iframe>`
+              SpotifyDIV.querySelector('.category-title').textContent = 'You are listening'
               return
           }
 
           if (spotifytype == 1) {
-              SpotifyE.innerHTML = `<iframe class="spotifyembed" src="https://open.spotify.com/embed/track/${data['TrackID']}?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`
-          } else {
+              SpotifyE.innerHTML = `<iframe class="spotifyembed" src="https://open.spotify.com/embed/track/${data['TrackID']}?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" loading="lazy"></iframe>`
+          } else if (spotifytype == 0) {
               const minutesd = Math.floor((data['Duration'] / 1000) / 60);
               const secondsd = Math.floor((data['Duration'] / 1000) % 60);
               const secondsp = Math.floor((data['Progress'] / 1000) % 60);
@@ -218,12 +221,21 @@ function spotifyinit() {
       })
 }
 
-var slider = document.getElementById("sliderv");
 if (slider) {
   slider.addEventListener("change", function() {
       changevolume(slider.value)
   })
 }
+
+if (links) {
+  links.forEach(pause => {
+    const hovers = new Audio('https://api.appolon.dev/download/click.wav');
+    pause.addEventListener('mouseenter', () => {
+        hovers.play();
+    });
+  });
+}
+
 
 
 randomnote()
