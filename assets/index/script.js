@@ -3,20 +3,6 @@ const song = {
   './assets/index/sounds/okay..mp3': '7FIEearfOP221QvSsQ8cKB',
 }
 
-const spath = Object.keys(song)
-const sid = Object.values(song) 
-
-const titles = [
-  "Appolon.dev", "Appolon.de", "Appolon.d", "Appolon.",
-  "Appolon", "Appolo", "Appol", "Appo", "App", "Ap",
-  "A", "Ap", "App", "Appo", "Appol", "Appolo",
-  "Appolon", "Appolon.", "Appolon.d", "Appolon.de",
-  "Appolon.dev", "ppolon.dev", "polon.dev", "olon.dev",
-  "lon.dev", "on.dev", "o.dev", ".dev", "dev", "ev",
-  "v", "ev", "dev", "o.dev", "lon.dev", "olon.dev",
-  "polon.dev", "ppolon.dev", "Appolon.dev"
-];
-
 const note = [
   "This guy cool",
   "note.exe",
@@ -26,20 +12,30 @@ const note = [
   "Click for add a note",
   "Can you write something here please",
   "Buy SelfCTRL NOW --> selfctrl.appolon.dev",
-  "Rise > Moon ?",
   "Moon > Rise ?",
   "Lunar > Badlion",
   "Astolfo > Rise ?",
-  "Rise > Astolfo ?"
-];
+  "fukc"
+]
+
+const titles =["Appolon.dev", "Appolon.de","Appolon.d", "Appolon.", "Appolon",
+              "Appolo", "Appol", "Appo", "App", "Ap", "A", "Ap", "App", "Appo",
+              "Appol", "Appolo", "Appolon", "Appolon.", "Appolon.d", "Appolon.de",
+              "Appolon.dev", "ppolon.dev","polon.dev", "olon.dev", "lon.dev", 
+              "on.dev","o.dev", ".dev", "dev", "ev", "v", "ev", "dev", "o.dev",
+              "lon.dev", "olon.dev", "polon.dev", "ppolon.dev", "Appolon.dev"
+]
+
 
 const links = document.querySelectorAll('.typed-text a')
 const slider = document.getElementById("sliderv");
+const musiclink = document.getElementById("music");
+const spath = Object.keys(song)
+const sid = Object.values(song) 
 
 let music;
 let musicname;
 let musicid;
-let spotifytype = 1;
 
 
 
@@ -53,6 +49,20 @@ function title() {
   setInterval(update, 100);
 }
 
+
+function checkbackend(callback) {
+  fetch("https://api.appolon.dev/")
+    .then(response => {
+      if (response.status >= 200 && response.status < 400) {
+        callback(true);
+      } else {
+        callback(false);
+      }
+    })
+    .catch(error => {
+      callback(false);
+    });
+}
 
 function randomnote() {
   const rtext = note[Math.floor(Math.random() * note.length)];
@@ -112,28 +122,40 @@ function ntf(message) {
 
   setTimeout(function() {
       notification.style.top = "-100px";
-      notification.style.opacity = "1";
+      notification.style.opacity = "0";
   }, 5000);
 }
 
 
 function autoplayfix() {
-  const body = Array.from(document.body.children);
+  var body = Array.from(document.body.children);
 
   body.forEach(element => document.body.removeChild(element));
 
-  const text = document.createElement("p");
-  const bg = document.createElement("div");
+  var text = document.createElement("p");
+  var footer = document.createElement("div");
+  var bg = document.createElement("div");
 
+  document.body.style.cursor = "crosshair";
+  footer.innerHTML = '<a href="https://developer.chrome.com/blog/autoplay">Why?</a>';
+  footer.querySelector('a').style.textDecoration = "none";
   text.textContent = "Click anywhere";
-  text.style.fontSize = "20px";
+  text.style.fontSize = "25px";
   text.style.fontWeight = "bold";
   text.style.position = "fixed";
   text.style.top = "50%";
   text.style.left = "50%";
   text.style.transform = "translate(-50%, -50%)";
   text.style.color = "white";
-  text.style.zIndex = "9999";
+  text.style.zIndex = "2";
+  footer.style.zIndex = "2";
+  footer.style.position = "fixed";
+  footer.style.top = "95%";
+  footer.style.left = "50%";
+  footer.style.transform = "translate(-50%, -50%)";
+  footer.style.opacity = "0.7"
+  footer.addEventListener("mouseover", function() { footer.style.opacity = "2" });
+  footer.addEventListener("mouseout", function() { footer.style.opacity = "0.7" });
 
   bg.style.position = "fixed";
   bg.style.top = "0";
@@ -142,19 +164,23 @@ function autoplayfix() {
   bg.style.height = "100%";
   bg.style.backgroundImage = "url('https://api.appolon.dev/download/renderbg_blur.jpg')";
   bg.style.backgroundSize = "cover";
-  bg.style.zIndex = "9998";
+  bg.style.zIndex = "1";
   bg.style.transition = "opacity 0.5s";
 
   document.body.appendChild(bg);
   document.body.appendChild(text);
+  document.body.appendChild(footer);
 
   function autoplayfix2() {
       initmusic();
       text.style.opacity = "0";
       bg.style.opacity = "0";
+      footer.style.opacity = "0";
       setTimeout(() => {
+          document.body.removeChild(footer);
           document.body.removeChild(text);
           document.body.removeChild(bg);
+          document.body.style.cursor = "auto";
           body.forEach(element => document.body.appendChild(element));
           spotifyinit();
           perror();
@@ -167,6 +193,7 @@ function autoplayfix() {
 
 
 function initmusic() {
+  if(!musiclink) { return }
   const randomi = Math.floor(Math.random() * spath.length);
   const path = spath[randomi];
   const match = path.match(/\/([^/]+)\.\w+$/);
@@ -174,7 +201,9 @@ function initmusic() {
   musicid = sid[randomi]
   music = new Audio(path);
   music.volume = 0.2;
+  musiclink.innerHTML = `<a href="https://open.spotify.com/track/${musicid}" id="music">[Music]</a>`
   music.play()
+  ntf('▶️ Listening to "' + musicname + '"');
 }
 
 
@@ -196,28 +225,21 @@ function pause() {
 }
 
 function spotifyinit() {
-  fetch('https://api.appolon.dev/index/spotify')
-      .then(response => response.json())
-      .then(data => {
-          const SpotifyE = document.querySelector('.spotify');
-          const SpotifyDIV = document.getElementById('spotifydiv');
-          if (data['Track'] == undefined || data["Playing"] == false) {
-              SpotifyE.innerHTML = `<iframe class="spotifyembed" src="https://open.spotify.com/embed/track/${musicid}?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" loading="lazy"></iframe>`
-              SpotifyDIV.querySelector('.category-title').textContent = 'You are listening'
-              return
-          }
-
-          if (spotifytype == 1) {
-              SpotifyE.innerHTML = `<iframe class="spotifyembed" src="https://open.spotify.com/embed/track/${data['TrackID']}?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" loading="lazy"></iframe>`
-          } else if (spotifytype == 0) {
-              const minutesd = Math.floor((data['Duration'] / 1000) / 60);
-              const secondsd = Math.floor((data['Duration'] / 1000) % 60);
-              const secondsp = Math.floor((data['Progress'] / 1000) % 60);
-              const minutesp = Math.floor((data['Progress'] / 1000) / 60);
-              const time = `${minutesp.toString().padStart(2, '0')}:${secondsp.toString().padStart(2, '0')} / ${minutesd.toString().padStart(2, '0')}:${secondsd.toString().padStart(2, '0')}`;
-              SpotifyE.innerHTML = `<a href='https://open.spotify.com/track/${data['TrackID']}' target='_blank'>${data['Track'].replace(/\([^)]*\)/g, '')}</a> ${time} <br>by <a href='${data['Artists'][0]['Url']}' target='_blank'>${data['Artists'][0]['Name']}</a>`;
-          }
-
+    const SpotifyE = document.querySelector('.spotify');
+    const SpotifyDIV = document.getElementById('spotifydiv');
+    req = fetch('https://api.appolon.dev/index/spotify')
+    .then(response => response.json())
+    .then(data => {
+      if (data['Track'] == undefined || data["Playing"] == false) {
+        if(!music) {
+          SpotifyDIV.remove()
+          return
+        }
+        SpotifyE.innerHTML = `<iframe class="spotifyembed" src="https://open.spotify.com/embed/track/${musicid}?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" loading="lazy"></iframe>`
+        SpotifyDIV.querySelector('.category-title').textContent = 'You are listening'
+            return
+        }
+      SpotifyE.innerHTML = `<iframe class="spotifyembed" src="https://open.spotify.com/embed/track/${data['TrackID']}?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" loading="lazy"></iframe>`
       })
 }
 
@@ -236,8 +258,15 @@ if (links) {
   });
 }
 
+checkbackend(up => {
+  if (!up) {
+    window.location.replace('https://status.appolon.dev/')
+  }
+});
+
 
 
 randomnote()
 autoplayfix();
 title();
+initmusic();
